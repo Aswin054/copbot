@@ -1,4 +1,9 @@
-farm-haystack
 flask
+flask-cors
+faiss-cpu
+sentence-transformers
+numpy
 python-docx
-streamlit
+requests
+gunicorn  # For production deployment
+
