@@ -3,11 +3,10 @@ import json
 from sentence_transformers import SentenceTransformer
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-
+import os
 
 # ✅ Load SentenceTransformer model for deduplication
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-
 
 # ✅ Function to extract QA pairs from DOCX properly
 def extract_qa_from_docx(file_path):
@@ -79,11 +78,14 @@ def add_default_pair(qa_pairs):
 
 
 if __name__ == "__main__":
-    file_path = r"C:\Users\Lenova\Desktop\cop\backend\data\COPBOT DATABASE.docx"
+    # ✅ Set dynamic paths
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    docx_path = os.path.join(BASE_DIR, "..", "data", "COPBOT DATABASE.docx")
+    output_path = os.path.join(BASE_DIR, "..", "models", "faiss_index", "questions.json")
 
     # ✅ Extract Q&A pairs
     print("📚 Extracting QA pairs...")
-    qa_data = extract_qa_from_docx(file_path)
+    qa_data = extract_qa_from_docx(docx_path)
     print(f"✅ Extracted {len(qa_data)} QA pairs successfully!")
 
     # ✅ Remove duplicates for better accuracy
@@ -95,7 +97,6 @@ if __name__ == "__main__":
     qa_data = add_default_pair(qa_data)
 
     # ✅ Save as JSON
-    output_path = r"C:\Users\Lenova\Desktop\cop\backend\models\faiss_index\questions.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(qa_data, f, ensure_ascii=False, indent=4)
 

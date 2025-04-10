@@ -2,15 +2,17 @@ import faiss
 import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
+import os
 
 # ✅ Load SentenceTransformer model
 print("🔁 Loading SentenceTransformer model...")
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 print("✅ Model loaded successfully!")
 
-# ✅ File paths
-questions_path = r"C:\Users\Lenova\Desktop\cop\backend\data\police_faqs.json"
-faiss_index_path = r"C:\Users\Lenova\Desktop\cop\backend\models\faiss_index\police_faqs.index"
+# ✅ Dynamically determine paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+questions_path = os.path.join(BASE_DIR, "..", "data", "police_faqs.json")
+faiss_index_path = os.path.join(BASE_DIR, "..", "models", "faiss_index", "police_faqs.index")
 
 # ✅ Load questions and answers from JSON
 print(f"🔁 Loading questions from: {questions_path}")

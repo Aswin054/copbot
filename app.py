@@ -4,6 +4,7 @@ import faiss
 import json
 import numpy as np
 from flask_cors import CORS
+import os
 
 # ✅ Initialize Flask app
 app = Flask(__name__)
@@ -14,9 +15,10 @@ print("🔁 Loading SentenceTransformer model...")
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 print("✅ Model loaded successfully!")
 
-# ✅ Define file paths
-faiss_index_path = r"C:\Users\Lenova\Desktop\cop\backend\models\faiss_index\police_faqs.index"
-questions_path = r"C:\Users\Lenova\Desktop\cop\backend\data\police_faqs.json"  # Corrected path
+# ✅ Define dynamic file paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+faiss_index_path = os.path.join(BASE_DIR, "models", "faiss_index", "police_faqs.index")
+questions_path = os.path.join(BASE_DIR, "data", "police_faqs.json")
 
 # ✅ Load FAISS index and questions data
 try:
