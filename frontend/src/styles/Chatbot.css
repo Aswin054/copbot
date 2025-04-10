@@ -1,0 +1,183 @@
+/* src/styles/Chatbot.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Open+Sans&display=swap");
+
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4ede4; /* Soft warm background */
+  font-family: "Open Sans", Arial, sans-serif; /* ✅ Added fallback */
+  font-display: swap; /* ✅ Ensures smooth font loading */
+}
+
+/* ✅ Chat Header */
+.chat-header {
+  background-color: #5d4037; /* Rich brown */
+  padding: 15px 0;
+  text-align: center;
+  color: #f5e7d2;
+  font-family: "Roboto Condensed", Arial, sans-serif; /* ✅ Fallback added */
+  font-size: 22px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Chat Area */
+.chat-area {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fffdf9;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ User and Bot Messages */
+.message {
+  display: flex;
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+/* ✅ Message Bubbles */
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInBubble 0.3s ease-in-out forwards;
+}
+
+.message.user .message-bubble {
+  background-color: #007bff;
+  color: white;
+  border-top-right-radius: 0;
+}
+
+.message.bot .message-bubble {
+  background-color: #e63946;
+  color: white;
+  border-top-left-radius: 0;
+}
+
+/* ✅ Typing Animation */
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #e63946;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ✅ Input Area */
+.input-area {
+  display: flex;
+  padding: 15px;
+  background-color: #5d4037;
+}
+
+.input-area input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #b08968;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-area input:focus {
+  border-color: #e63946;
+}
+
+.input-area button {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin-left: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.input-area button:hover {
+  background-color: #b02a37;
+}
+
+/* ✅ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBubble {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 600px) {
+  .chat-area {
+    padding: 10px;
+  }
+
+  .input-area {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .input-area input,
+  .input-area button {
+    width: 100%;
+  }
+}

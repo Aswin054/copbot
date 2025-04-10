@@ -1,0 +1,106 @@
+/* src/styles/Login.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    to bottom,
+    #8c5b38,
+    #a67c52
+  ); /* ✅ Enhanced gradient for a richer look */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ✅ Police Logo */
+.police-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* ✅ Login Form */
+.login-form {
+  background-color: #4d2f1e; /* ✅ Darker shade for a professional police vibe */
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  width: 370px;
+  text-align: center;
+  color: #f5e7d2; /* ✅ Softer white for a balanced contrast */
+  font-family: "Roboto Condensed", sans-serif; /* ✅ Police-like bold font */
+}
+
+/* ✅ Heading */
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #f5e7d2;
+}
+
+/* ✅ Input Group */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* ✅ Labels */
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #f5e7d2;
+}
+
+/* ✅ Input Fields */
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b08968;
+  border-radius: 6px;
+  background-color: #f5e7d2;
+  color: #4d2f1e;
+  font-size: 14px;
+}
+
+/* ✅ Button */
+.btn-login {
+  background-color: #e63946; /* ✅ Strong red for action buttons */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-login:hover {
+  background-color: #b02a37; /* ✅ Darker shade on hover */
+}
+
+/* ✅ Error Message */
+.error {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 600px) {
+  .login-form {
+    width: 90%;
+    padding: 20px;
+  }
+  .btn-login {
+    padding: 10px 20px;
+  }
+}
