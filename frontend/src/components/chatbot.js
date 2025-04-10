@@ -18,7 +18,7 @@ const Chatbot = () => {
     setIsTyping(true); // Show typing indicator
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/query", { query });
+      const response = await axios.post("https://copbot-tbpj.onrender.com/query", { query });
 
       setTimeout(() => {
         setIsTyping(false); // Remove typing indicator
