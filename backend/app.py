@@ -16,10 +16,11 @@ model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 print("✅ Model loaded successfully!")
 
 # ✅ Define dynamic file paths
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 faiss_index_path = os.path.join(BASE_DIR, "models", "faiss_index", "police_faqs.index")
 questions_path = os.path.join(BASE_DIR, "data", "police_faqs.json")
-
 # ✅ Load FAISS index and questions data
 try:
     print(f"🔁 Loading FAISS index from: {faiss_index_path}")
